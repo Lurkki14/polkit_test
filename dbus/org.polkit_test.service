@@ -1,0 +1,4 @@
+ [D-BUS Service]
+Name=org.polkit_test
+Exec=/opt/polkit_test/bin/polkit_test
+User=root
