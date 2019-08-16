@@ -1,5 +1,5 @@
 QT -= gui
-QT += dbus
+QT += dbus widgets
 
 CONFIG += c++11 console link_pkgconfig
 CONFIG -= app_bundle
@@ -23,12 +23,21 @@ SOURCES += \
 PKGCONFIG += polkit-qt5-1
 
 # Default rules for deployment.
-dbus_target.path=/usr/share/dbus-1
-dbus_target.files = dbus/*
+dbus_interface_target.path=/usr/share/dbus-1/interfaces
+dbus_interface_target.files=dbus/org.polkit_test.xml
+
+dbus_service_target.path=/usr/share/dbus-1/services
+dbus_service_target.files=dbus/org.polkit_test.service
+
+dbus_policy_target.path=/usr/share/dbus-1/system.d
+dbus_policy_target.files=dbus/org.polkit_test.conf
+
+polkit_policy_target.path=/usr/share/polkit-1/actions
+polkit_policy_target.files=polkit/org.polkit_test.policy
 
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target dbus_target
+!isEmpty(target.path): INSTALLS += target dbus_interface_target dbus_service_target dbus_policy_target polkit_policy_target
 
 HEADERS += \
     helper.h
