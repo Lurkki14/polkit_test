@@ -1,0 +1,4 @@
+polkit_test.pro.user
+Makefile
+polkit_test
+.qmake.stash

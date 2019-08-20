@@ -4,8 +4,8 @@
  "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
 <policyconfig>
   <action id="org.polkit_test.action2">
-    <description>Action number two</description>
-    <message>Prevents from doing action two</message>
+    <description>Some action</description>
+    <message>Do something as root</message>
     <defaults>
       <allow_inactive>yes</allow_inactive>
       <allow_active>auth_admin</allow_active>

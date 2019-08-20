@@ -19,8 +19,13 @@ SOURCES += \
         helper.cpp \
         main.cpp
 
+HEADERS += \
+    helper.h
+
 # Flags for polkit-qt5
 PKGCONFIG += polkit-qt5-1
+
+LIBS += -lnvidia-ml
 
 # Default rules for deployment.
 dbus_interface_target.path=/usr/share/dbus-1/interfaces
@@ -39,5 +44,3 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target dbus_interface_target dbus_service_target dbus_policy_target polkit_policy_target
 
-HEADERS += \
-    helper.h
